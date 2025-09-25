@@ -2,7 +2,7 @@
 
 Um simples e divertido **jogo da memória** desenvolvido com **HTML**, **CSS** e **JavaScript puro**. O objetivo é encontrar os pares de cartas iguais com o menor número de tentativas possível.
 
-![Demo do Jogo](https://via.placeholder.com/800x400?text=Demo+do+Jogo+da+Mem%C3%B3ria)
+![Demo do Jogo](https://annefaria.github.io/JogoDaMemoria/)
 
 ## 🚀 Funcionalidades
 
