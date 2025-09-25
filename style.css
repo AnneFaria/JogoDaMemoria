@@ -1,0 +1,138 @@
+/*paleta com as variáveis do tema */
+    :root{
+      --bg:#261a13;
+      --panel:#7f6958;
+      --card:#9a7f6d;
+      --accent:#38bdf8;
+      --win:#22c55e;
+      --text:#261a13;
+      --front: #90d1f9;
+    }
+
+    /* Reset mínimo */
+    *{ box-sizing:border-box; }
+
+    /* html/body — altura total para permitir fundo cobrir a viewport */
+    html, body{ height:100%; }
+
+    /* body — plano de fundo e tipografia base */
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text);
+      background-color:#261a13;
+      background-image:url('img/fundo.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      min-height:100svh;
+      padding:24px;
+    }
+
+    /* .app - container principal do jogo */
+    .app{
+      width:min(1024px,100%);
+      margin-inline:auto;
+      display:grid;
+      gap:16px;
+    }
+
+    /* .header — barra superior com título/placar/botões */
+    .header{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+      background:var(--panel);
+      border:1px solid var(--panel);
+      border-radius:16px;
+      padding:16px 18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    /* .titulo — estilo do título do jogo */
+    .titulo{ font-weight:700; letter-spacing:.4px; }
+
+    /* .stats — área de status (movimentos, tempo, botões) */
+    .stats{ display:flex; gap:16px; align-items:center; font-variant-numeric:tabular-nums; }
+
+    /* .badge — para movimentos/tempo */
+    .badge{
+      background:var(--card);
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid #2a3444;
+    }
+
+    /* .btn — estilo base dos botões */
+    .btn{
+      appearance:none;
+      border:1px solid #2a3444;
+      background:var(--card);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+    /* .btn:hover — realce no hover */
+    .btn:hover{ border-color:#3a465a; }
+
+    /* .grid — tabuleiro com n colunas */
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns:repeat(6,1fr); /* troque para qtde colunas */
+    }
+
+ 
+    /* .card — cartões*/
+    .card{
+      appearance:none;        
+      background:transparent;
+      position:relative;
+      aspect-ratio:3/4;
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      user-select:none;
+      border:1px solid #2a3444;
+      box-shadow:0 8px 18px rgba(0,0,0,.35);
+      transform-style:preserve-3d;
+      perspective:1000px;
+    }
+
+    /* .inner — wrapper que realmente gira no eixo Y */
+    .inner{
+      position:absolute; inset:0;
+      transform-style:preserve-3d;
+      will-change:transform;
+    }
+
+    /* .face — camada base das faces (frente/verso) */
+    .face{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      background:transparent;
+      background-size:cover;
+      background-position:center;
+      backface-visibility:hidden;
+    }
+
+    /* .face img — imagem da frente da carta */
+    .face img{
+      width:100%; height:100%;
+      object-fit:contain;
+      pointer-events:none;
+    }
+
+    /* .front — frente da carta (mantém transparente) */
+    .front{
+      border-radius:14px;
+       background-color: var(--front);
+    }
+
+    /* .back — verso da carta */
+    .back{
+      transform:rotateY(180deg);
+      background-image:url('img/roses-7133951_1280\ \(1\).jpg');
+      background-color:transparent;
+    }
+
+    
